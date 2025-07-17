@@ -1,6 +1,11 @@
-export default function calculateCanvasSize(
+export default function calculateCanvasDiagonal(
   length: string,
   width: string
-) {
-  return 2 * (parseInt(length) + parseInt(width));
+): number {
+  const len = parseFloat(length);
+  const wid = parseFloat(width);
+
+  if (isNaN(len) || isNaN(wid)) return NaN;
+
+  return Math.sqrt(len * len + wid * wid);
 }
