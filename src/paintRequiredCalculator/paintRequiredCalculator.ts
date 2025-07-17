@@ -2,7 +2,12 @@ export default function paintRequiredCalculator(
   area: number,
   coveragePerLiter: number
 ): number {
-  if (isNaN(area) || isNaN(coveragePerLiter)) {
+  if (
+    isNaN(area) ||
+    isNaN(coveragePerLiter) ||
+    area < 0 ||
+    coveragePerLiter <= 0
+  ) {
     return NaN;
   }
 

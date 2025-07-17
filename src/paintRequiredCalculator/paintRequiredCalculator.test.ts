@@ -1,15 +1,21 @@
-import paintRequiredCalculator from "./paintRequiredCalculator";
+import paintRequiredCalculator from './paintRequiredCalculator';
 
-describe("paint required calculator", () => {
-  test("should return expected result", () => {
-    const result = paintRequiredCalculator(50, 10);
-
-    expect(result).toEqual(5);
+describe('paintRequiredCalculator', () => {
+  test('calculates correctly', () => {
+    expect(paintRequiredCalculator(50, 10)).toBe(5);
   });
 
-  test('should handle NaN inputs by returning NaN', () => {
+  test('returns NaN for zero or negative coverage', () => {
+    expect(paintRequiredCalculator(50, 0)).toBeNaN();
+    expect(paintRequiredCalculator(50, -10)).toBeNaN();
+  });
+
+  test('returns NaN for negative area', () => {
+    expect(paintRequiredCalculator(-50, 10)).toBeNaN();
+  });
+
+  test('returns NaN for NaN inputs', () => {
     expect(paintRequiredCalculator(NaN, 10)).toBeNaN();
-    expect(paintRequiredCalculator(100, NaN)).toBeNaN();
+    expect(paintRequiredCalculator(50, NaN)).toBeNaN();
   });
-
 });

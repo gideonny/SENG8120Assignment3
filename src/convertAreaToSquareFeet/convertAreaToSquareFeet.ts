@@ -1,5 +1,5 @@
 export default function convertAreaToSquareFeet(area: number): number {
-  if (isNaN(area)) {
+  if (isNaN(area) || area < 0) {
     return NaN;
   }
 

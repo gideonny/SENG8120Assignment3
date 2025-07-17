@@ -2,12 +2,17 @@ export default function calculateCanvasSize(
   length: string,
   width: string
 ): number {
-  const len = parseFloat(length);
-  const wid = parseFloat(width);
+  const parsedLength = parseInt(length);
+  const parsedWidth = parseInt(width);
 
-  if (isNaN(len) || isNaN(wid)) {
+  if (
+    isNaN(parsedLength) ||
+    isNaN(parsedWidth) ||
+    parsedLength < 0 ||
+    parsedWidth < 0
+  ) {
     return NaN;
   }
 
-  return len * wid;
+  return parsedLength * parsedWidth;
 }

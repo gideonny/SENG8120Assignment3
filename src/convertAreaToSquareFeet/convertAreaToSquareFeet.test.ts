@@ -11,10 +11,8 @@ describe('convertAreaToSquareFeet', () => {
     expect(convertAreaToSquareFeet(0)).toBe(0);
   });
 
-  test('should handle negative values correctly', () => {
-    expect(convertAreaToSquareFeet(-100)).toBeCloseTo(-1076.39);
-    expect(convertAreaToSquareFeet(-200)).toBeCloseTo(-2152.78);
-    expect(convertAreaToSquareFeet(-150)).toBeCloseTo(-1614.585);
+  test('returns NaN for negative area', () => {
+    expect(convertAreaToSquareFeet(-100)).toBeNaN();
   });
 
   test('should handle NaN input by returning NaN', () => {
