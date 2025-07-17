@@ -24,4 +24,11 @@ describe('calculateTotalCost', () => {
   test('should return 0 when both costs are 0', () => {
     expect(calculateTotalCost(0, 0)).toBe(0);
   });
+
+  test('should handle non-numeric inputs by returning NaN', () => {
+    expect(calculateTotalCost(NaN, 50)).toBeNaN();
+    expect(calculateTotalCost(100, NaN)).toBeNaN();
+    expect(calculateTotalCost(NaN, NaN)).toBeNaN();
+  });
+
 });
