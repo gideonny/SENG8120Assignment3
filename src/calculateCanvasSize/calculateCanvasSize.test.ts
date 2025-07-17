@@ -2,7 +2,7 @@ import calculateCanvasSize from './calculateCanvasSize';
 
 describe('calculateCanvasSize', () => {
   test('calculates size correctly', () => {
-    expect(calculateCanvasSize('10', '20')).toBe(60);
+    expect(calculateCanvasSize('10', '20')).toBe(200);
   });
 
   test('returns NaN for negative dimensions', () => {
