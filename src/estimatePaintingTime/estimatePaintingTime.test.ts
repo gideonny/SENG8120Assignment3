@@ -20,5 +20,11 @@ describe('estimatePaintingTime', () => {
     expect(estimatePaintingTime(100, -10)).toBe(-10);
     expect(estimatePaintingTime(-100, -10)).toBe(10);
   });
+
+  test('should handle NaN inputs by returning NaN', () => {
+    expect(estimatePaintingTime(NaN, 10)).toBeNaN();
+    expect(estimatePaintingTime(100, NaN)).toBeNaN();
+  });
+
 });
 
