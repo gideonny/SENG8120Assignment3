@@ -12,16 +12,25 @@ describe('paintRequiredForMultipleCoats', () => {
   });
 
   test('should return 0 for coveragePerLiter of 0', () => {
-    expect(paintRequiredForMultipleCoats(100, 0, 2)).toBe(Infinity);
+    expect(paintRequiredForMultipleCoats(100, 0, 2)).toBe(NaN);
   });
 
-  test('should handle negative values correctly', () => {
-    expect(paintRequiredForMultipleCoats(-100, 10, 2)).toBe(-20);
-    expect(paintRequiredForMultipleCoats(100, -10, 2)).toBe(-20);
-    expect(paintRequiredForMultipleCoats(100, 10, -2)).toBe(-20);
+  test('should return NaN for negative area, coveragePerLiter, or coats', () => {
+    expect(paintRequiredForMultipleCoats(-100, 10, 2)).toBeNaN();
+    expect(paintRequiredForMultipleCoats(100, -10, 2)).toBeNaN();
+    expect(paintRequiredForMultipleCoats(100, 10, -2)).toBeNaN();
   });
 
   test('should handle coats of 0 correctly', () => {
     expect(paintRequiredForMultipleCoats(100, 10, 0)).toBe(0);
   });
+
+
+  test('should handle NaN inputs by returning NaN', () => {
+    expect(paintRequiredForMultipleCoats(NaN, 10, 2)).toBeNaN();
+    expect(paintRequiredForMultipleCoats(100, NaN, 2)).toBeNaN();
+    expect(paintRequiredForMultipleCoats(100, 10, NaN)).toBeNaN();
+  });
+
+
 });
