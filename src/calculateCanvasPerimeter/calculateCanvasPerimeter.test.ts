@@ -1,39 +1,34 @@
 import calculateCanvasPerimeter from "./calculateCanvasPerimeter";
-import calculateCanvasSize from "./calculateCanvasPerimeter";
 
 describe("calculateCanvasPerimeter", () => {
   test("returns correct result for positive values", () => {
     const result = calculateCanvasPerimeter("10", "100");
-    expect(result).toEqual(2*(10 + 100));
-  })
-});
+    expect(result).toEqual(2 * (10 + 100));
+  });
 
-test("should return 0 for length and width of 0", () => {
-  const result = calculateCanvasPerimeter("0", "0");
-  expect(result).toEqual(0);
-});
+  test("returns 0 for length and width of 0", () => {
+    const result = calculateCanvasPerimeter("0", "0");
+    expect(result).toEqual(0);
+  });
 
-test("should return NaN for invalid inputs", () => {
-  const result = calculateCanvasPerimeter("invalid", "100");
-  expect(result).toBeNaN();
-});
+  test("returns NaN for invalid inputs", () => {
+    expect(calculateCanvasPerimeter("invalid", "100")).toBeNaN();
+  });
 
-test("should return NaN for empty strings", () => {
-  const result = calculateCanvasPerimeter("", "");
-  expect(result).toBeNaN();
-});
+  test("returns NaN for empty strings", () => {
+    expect(calculateCanvasPerimeter("", "")).toBeNaN();
+  });
 
-test("should return NaN for non-numeric strings", () => {
-  const result = calculateCanvasPerimeter("abc", "def");
-  expect(result).toBeNaN();
-});
+  test("returns NaN for non-numeric strings", () => {
+    expect(calculateCanvasPerimeter("abc", "def")).toBeNaN();
+  });
 
-test("should handle negative values", () => {
-  const result = calculateCanvasPerimeter("-10", "-20");
-  expect(result).toEqual(2 * (-10 + -20));
-});
+  test("returns NaN for negative values", () => {
+    expect(calculateCanvasPerimeter("-10", "-20")).toBeNaN();
+  });
 
-test("should handle decimal values", () => {
-  const result = calculateCanvasPerimeter("10.5", "20.5");
-  expect(result).toEqual(2 * (10.5 + 20.5));
+  test("handles decimal values", () => {
+    const result = calculateCanvasPerimeter("10.5", "20.5");
+    expect(result).toEqual(2 * (10.5 + 20.5));
+  });
 });

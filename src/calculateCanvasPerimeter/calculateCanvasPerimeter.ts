@@ -2,8 +2,8 @@ export default function calculateCanvasPerimeter(
   length: string,
   width: string
 ): number {
-  const parsedLength = parseInt(length);
-  const parsedWidth = parseInt(width);
+  const parsedLength = parseFloat(length);
+  const parsedWidth = parseFloat(width);
 
   if (
     isNaN(parsedLength) ||
