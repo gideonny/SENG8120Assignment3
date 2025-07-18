@@ -58,4 +58,19 @@ To run a specific test, you can use
 ```bash
 npm run test [my test name]
 ```
+**Linting Your Code**
+This project uses ESLint to maintain code quality and consistency.
 
+To check for linting issues, run:
+
+```bash
+npm run lint
+```
+
+To automatically fix linting issues where possible, run:
+
+```bash
+npm run lint:fix
+```
+
+It is recommended to run linting regularly to ensure code quality before committing changes.
